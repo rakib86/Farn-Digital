@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      align-items: center;
+    
+    }
+
+    .phone {
+      height: 85%;
+      
+      border-radius: 4vh;
+      aspect-ratio: 9/16;
+      background: url('images/pro.jpg') center/cover no-repeat;
+      transform-style: preserve-3d;
+      transform: perspective(5000px) rotateY(var(--rotateX)) rotateX(var(--rotateY));
+      transition: transform 0.3s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="phone" id="phone1"></div>
+  <div class="phone" id="phone2"></div>
+  <div class="phone" id="phone3"></div>
+  <div class="phone" id="phone4"></div>
+
+  <script>
+    const phones = document.querySelectorAll(".phone");
+
+    phones.forEach((phone) => {
+      phone.addEventListener("mouseenter", () => {
+        phone.isHovered = true;
+        updateRotation();
+      });
+
+      phone.addEventListener("mouseleave", () => {
+        phone.isHovered = false;
+        updateRotation();
+      });
+    });
+
+    document.addEventListener("mousemove", updateRotation);
+
+    function updateRotation(e) {
+      phones.forEach((phone) => {
+        if (!phone.isHovered) {
+          rotateElement(e, phone);
+        } else {
+          // Reset rotation for the hovered phone
+          phone.style.setProperty("--rotateX", "0deg");
+          phone.style.setProperty("--rotateY", "0deg");
+        }
+      });
+    }
+
+    function rotateElement(event, element) {
+      const x = event.clientX;
+      const y = event.clientY;
+
+      const middleX = window.innerWidth / 2;
+      const middleY = window.innerHeight / 2;
+
+      const offsetX = ((x - middleX) / middleX) * 45;
+      const offsetY = ((y - middleY) / middleY) * 45;
+
+      element.style.setProperty("--rotateX", offsetX + "deg");
+      element.style.setProperty("--rotateY", -1 * offsetY + "deg");
+    }
+  </script>
+</body>
+</html>
