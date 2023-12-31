@@ -289,6 +289,8 @@
     margin: 2% 5%;
   }
 
+
+
   .service-intro-child h1 {
     font-size: 0.8rem;
   }
@@ -334,6 +336,9 @@
 .what-you-get-child img {
     flex: 1;
     margin: 30px;
+    width: 50%;
+    height: auto;
+
 }
 
 
@@ -349,6 +354,7 @@
   flex: 1;
   width: 50%;
   margin: 30px;
+  border-radius: 30px;
 }
 
 
@@ -376,10 +382,6 @@
     font-size: 16px;
 }
 
-.what-you-get-child img {
-    width: 100%;
-    height: auto;
-}
 
 
 
@@ -391,6 +393,16 @@
 
   .what-you-get-child2 {
     flex-direction: column;
+  }
+
+  .what-you-get-child img {
+      width: 90%;
+      margin: 0;
+  }
+
+  .what-you-get-child2 img {
+    width: 90%;
+    margin-bottom: 10px;
   }
 }
 
@@ -451,16 +463,23 @@
 
 }
 
-.review-img {
-  min-width: 40%;
+
+.review-box img{
+  width: 40%;
   height: 100%;
-  background: url('images/pro.jpg');
-  background-size: cover;
-  background-position: center;
-  margin-right: 5%;
   border-radius: 20px;
+  margin-right: 20px;
+  object-fit: cover;
   transition: all 0.5s ease-in-out;
+  box-shadow: 0 0 30px #3198ed;
 }
+
+.review-box:hover img {
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
+  box-shadow: 0 0 30px #ed7d31;
+}
+
 
 
 .review-text {
@@ -478,23 +497,6 @@
 }
 
 
-.review-box:hover .review-img {
-  height: 50%;
-  border-radius: 50%;
-  border: 5px solid #000000;
-  
-}
-
-.review-box:hover .review-text {
-  height: 50%;
-  background-color: #000000;
-  color: #fff;
-}
-
-.review-box:hover {
-  background-color: #d4cefb;
-  border-radius: 50px
-}
 
 
 
@@ -510,11 +512,18 @@
 
 .review-text h1 {
   font-size: 1.5rem;
-  font-weight: 500;
-
+  margin-top: 10px;
   text-align: center;
 }
 
+
+.review-box:hover .review-text h1 {
+  color: #fff;
+  background-color: #000000;
+  border-radius: 20px;
+  padding: 10px;
+  transition: all 0.5s ease;
+}
 
 
 
@@ -546,10 +555,7 @@ margin-top: 20px;
  
 }
 
-.review-box:hover .review-text {
-  height: 60%;
-}
-  
+
   .review-text p {
     font-size: 0.8rem;
     
@@ -734,3 +740,131 @@ footer {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.recent-project {
+  display: flex;
+  flex-direction: row;
+  margin: 10% 8%;
+  justify-content: space-between;
+}
+
+
+
+.recentp {
+  position: relative;
+  height: 50vh;
+  border-radius: 25px;
+  flex-grow: 1;
+  margin: 0 0.5%;
+  transition: all 0.5s ease;
+  border: 1px solid #ed7d31;
+
+}
+
+.recentp h1 {
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+  color: #ffffff;
+  display: none;
+}
+
+.recentp:hover {
+  flex-grow: 7;
+  box-shadow: 0 0 30px #ed7d31;
+}
+
+
+.recentp:hover h1 {
+  display: block;
+  transition: all 0.5s ease;
+  -webkit-text-fill-color: transparent;
+  background-image: url('images/GRADIENT-FOR-TEXT.png');
+  background-position: 50% 100%;
+  background-size: cover;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+
+
+.github-icon {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-image: url("images/github.png");
+  background-size: cover;
+  z-index: 1;
+}
+
+.recentp:hover .github-icon {
+  display: block;
+  background-color: #ed7d31;
+  border-radius: 50%;
+  box-shadow: 0 0 30px #ed7d31;
+}
+
+.recent1 {
+  background-color: black;
+  background-image: url(images/website-demo1.png);
+  background-size: cover;
+  flex-grow: 3;
+}
+
+.recent2 {
+  background-image: url(images/website-demo2.png);
+  background-size: cover;
+}
+
+.recent3 {
+  background-image: url(images/website-demo3.png);
+  background-size: cover;
+}
+
+.recent4 {
+  background-image: url(images/website-demo4.png);
+  background-size: cover;
+}
+
+.recent-project-mobile {
+  display: none;
+}
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+  
+.recentp {
+
+  height: 20vh;
+ 
+}
+
+.recentp h1 {
+  bottom: -30px;
+  font-size: 1rem;
+}
+}
